@@ -18,7 +18,14 @@ function randomBytes (size, cb) {
 
   // This will not work in older browsers.
   // See https://developer.mozilla.org/en-US/docs/Web/API/window.crypto.getRandomValues
-  crypto.getRandomValues(bytes)
+  try {
+    crypto.getRandomValues(bytes)
+  } catch (e) {
+    console.warn('Using Math.random() instead of crypto.getRandomValues()!');
+    for (var index in bytes) {
+      bytes[index] = Math.floor(256 * Math.random());
+    }
+  }
 
   if (typeof cb === 'function') {
     return process.nextTick(function () {

@@ -1,14 +1,2 @@
-randombytes
-===
-
-[![Version](http://img.shields.io/npm/v/randombytes.svg)](https://www.npmjs.org/package/randombytes)
-
-randombytes from node that works in the browser.  In node you just get crypto.randomBytes, but in the browser it uses .crypto/msCrypto.getRandomValues
-
-```js
-var randomBytes = require('randombytes');
-randomBytes(16);//get 16 random bytes
-randomBytes(16, function (err, resp) {
-  // resp is 16 random bytes
-});
-```
+This is a gutted version to allow browserify to run with PhantomJS.
+Do not use it unless you know what you are doing.
